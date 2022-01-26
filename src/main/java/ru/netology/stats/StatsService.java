@@ -41,10 +41,11 @@ public class StatsService {
     }
 
     public int calculateLowAverage(long[] sales) {
+        int avg = calculateAverage(sales);
         int lowMonth = 0;
         int month = 0;
         for (long sale : sales) {
-            if (sale < calculateAverage(sales)) {
+            if (sale < avg) {
                 lowMonth++;
             }
             month = month + 1;
@@ -54,10 +55,11 @@ public class StatsService {
 
 
     public int calculateHighAverage(long[] sales) {
+        int avg = calculateAverage(sales);
         int highMonth = 0;
         int month = 0;
         for (long sale : sales) {
-            if (sale > calculateAverage(sales)) {
+            if (sale > avg) {
                 highMonth++;
             }
             month = month + 1;
